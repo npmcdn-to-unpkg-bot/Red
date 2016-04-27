@@ -80,7 +80,6 @@ namespace Owin4
     {
         readonly AppFunc _next;
 
-        // Add a member to hold the options:
         readonly MyMiddlewareConfigOptions _options;
 
         public MyMiddlewareComponent(AppFunc next, MyMiddlewareConfigOptions options)
@@ -93,7 +92,6 @@ namespace Owin4
         {
             IOwinContext context = new OwinContext(environment);
 
-            // Insert the _options into the display text:
             await context.Response.WriteAsync(_options.GetGreeting());
             await _next.Invoke(environment);
         }

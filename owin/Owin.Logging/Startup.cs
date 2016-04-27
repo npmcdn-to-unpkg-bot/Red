@@ -10,16 +10,15 @@ namespace Owin.Logging
         {
             _logger = app.CreateLogger<Startup>();
 
-            _logger.WriteError("Application starting.");
-
-            var options = new MyMiddlewareOptions
+            var options = new MyMiddlewareConfigOptions("Hello World", "Richard")
             {
-                Message = "Hello World"
+                IncludeDate = true
             };
 
-            app.Use<MyMiddleware>(app, options);
-
-            _logger.WriteError("Application started.");
+            _logger.WriteVerbose("Configuring application.");
+            app.Use<MyMiddlewareComponent>(app, options);
+            app.Use<MyOtherMiddlewareComponent>(app);
+            _logger.WriteVerbose("Application configured.");
         }
     }
 }
