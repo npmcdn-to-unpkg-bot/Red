@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.1.4.js"></script>
+    <script src="Scripts/knockout-3.3.0.debug.js"></script>
+    <script src="ViewModels\Users.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            <!--list-->
+            <div data-bind="if: modeIsList">
+                <h1 class="page-header">
+                    <button type="button" class="btn btn-xs btn-primary">
+                        <span class="glyphicon glyphicon-refresh" data-bind="click: refresh"></span>
+                    </button>
+                    <button type="button" class="btn btn-xs btn-success">
+                        <span class="glyphicon glyphicon-plus" data-bind="click: create"></span>
+                    </button>
+                    List Users
+                </h1>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>User Name</th>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: users">
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-remove" data-bind="click: delete_"></span>
+                                </button>
+                                <button type="button" class="btn btn-xs btn-warning">
+                                    <span class="glyphicon glyphicon-pencil" data-bind="click: update"></span>
+                                </button>
+                                <button type="button" class="btn btn-xs btn-primary">
+                                    <span class="glyphicon glyphicon-play" data-bind="click: display"></span>
+                                </button>
+                            </td>
+                            <td data-bind="text: id"></td>
+                            <td data-bind="text: email"></td>
+                            <td data-bind="text: userName"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!--display-->
+            <div data-bind="if: modeIsDisplay">
+                <div data-bind="with: user">
+                    <h1 class="page-header">
+                        Display User
+                    </h1>
+                    <div class="form-horizontal">
+                        <label class="col-sm-4 control-label">Id</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: id"></p>
+                        <label class="col-sm-4 control-label">Email</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: email"></p>
+                        <label class="col-sm-4 control-label">Email Confirmed</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: emailConfirmed"></p>
+                        <label class="col-sm-4 control-label">Password Hash</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: passwordHash"></p>
+                        <label class="col-sm-4 control-label">Security Stamp</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: securityStamp"></p>
+                        <label class="col-sm-4 control-label">Phone Number</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: phoneNumber"></p>
+                        <label class="col-sm-4 control-label">Phone Number Confirmed</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: phoneNumberConfirmed"></p>
+                        <label class="col-sm-4 control-label">Two Factor Enabled</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: twoFactorEnabled"></p>
+                        <label class="col-sm-4 control-label">Lockout End Date Utc</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: lockoutEndDateUtc"></p>
+                        <label class="col-sm-4 control-label">Lockout Enabled</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: lockoutEnabled"></p>
+                        <label class="col-sm-4 control-label">Access Failed Count</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: accessFailedCount"></p>
+                        <label class="col-sm-4 control-label">User Name</label>
+                        <p class="col-sm-8 form-control-static" data-bind="text: userName"></p>
+                        <div class="col-sm-8 col-sm-offset-4">
+                            <button class="btn btn-default" data-bind="click: cancel">Cancel Display</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--create-->
+            <div data-bind="if: modeIsCreate">
+                <div data-bind="with: user">
+                    <h1 class="page-header">
+                        Create User
+                    </h1>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Email" data-bind="value: email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">User Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="User Name" data-bind="value: userName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button class="btn btn-success" data-bind="click: commit">Create User</button>
+                                <button class="btn btn-default" data-bind="click: cancel">Cancel Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--update-->
+            <div data-bind="if: modeIsUpdate">
+                <div data-bind="with: user">
+                    <h1 class="page-header">
+                        Update User
+                    </h1>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ID</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static" data-bind="text: id"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Email" data-bind="value: email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">User Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="User Name" data-bind="value: userName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button class="btn btn-warning" data-bind="click: commit">Update User</button>
+                                <button class="btn btn-default" data-bind="click: cancel">Cancel Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--delete-->
+            <div data-bind="if: modeIsDelete">
+                <div data-bind="with: user">
+                    <h1 class="page-header">
+                        Delete User
+                    </h1>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ID</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static" data-bind="text: id"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static" data-bind="text: email"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">User Name</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static" data-bind="text: userName"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button class="btn btn-danger" data-bind="click: commit">Delete User</button>
+                                <button class="btn btn-default" data-bind="click: cancel">Cancel Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
