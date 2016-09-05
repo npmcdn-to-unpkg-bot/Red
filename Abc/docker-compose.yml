@@ -1,0 +1,10 @@
+abc:
+  build: ./src/Abc.WebApi.SelfHost
+  ports:
+  - "5000:5000"
+abc-tests:
+  build: ./tests
+  environment:
+  - HOSTNAME=abc:5000
+  links:
+  - abc:abc
