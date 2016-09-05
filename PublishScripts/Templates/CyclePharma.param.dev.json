@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "CyclePharma"
+  },
+  "hostingPlanName": {
+    "value": "SeligDrahcir"
+  },
+  "siteLocation": {
+    "value": "North Europe"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "9e912120-af5b-4d19-a956-9caeeb836f3d"
+  },
+  "resourceGroup": {
+    "value": "SeligDrahcirResourceGroup"
+  }
+}

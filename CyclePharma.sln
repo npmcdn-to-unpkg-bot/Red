@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclePharma", "CyclePharma\CyclePharma.csproj", "{AF0EBB64-9D15-4560-B362-DE89F8B0BD8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{9052D374-99D9-45EF-AF49-1A3DD275EA3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{CA35BB0C-4AB9-4A3E-9F87-858326E98A9F}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{31331277-CF0C-42F0-8D41-0D0EFC6B5CE6}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\CyclePharma.json = PublishScripts\Templates\CyclePharma.json
+		PublishScripts\Templates\CyclePharma.param.dev.json = PublishScripts\Templates\CyclePharma.param.dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF0EBB64-9D15-4560-B362-DE89F8B0BD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0EBB64-9D15-4560-B362-DE89F8B0BD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0EBB64-9D15-4560-B362-DE89F8B0BD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0EBB64-9D15-4560-B362-DE89F8B0BD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA35BB0C-4AB9-4A3E-9F87-858326E98A9F} = {9052D374-99D9-45EF-AF49-1A3DD275EA3F}
+		{31331277-CF0C-42F0-8D41-0D0EFC6B5CE6} = {9052D374-99D9-45EF-AF49-1A3DD275EA3F}
+	EndGlobalSection
+EndGlobal
